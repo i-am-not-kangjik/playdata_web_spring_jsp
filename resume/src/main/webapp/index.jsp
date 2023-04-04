@@ -40,6 +40,10 @@
     .highlight {
         background-color: rgb(229, 229, 229);
     }
+    img {
+        width: 100%;
+        height: auto;
+    }
 
 </style>
 
@@ -56,29 +60,29 @@
             <col style="width:200px;">
         </colgroup>
         <tr>
-            <th rowspan="5">사진</th>
+            <th rowspan="5"><img src="./image (4).png" alt="캬캬캬"></th>
             <th class="highlight">성명</th>
-            <td></td>
+            <td>직강김</td>
             <th class="highlight">영문이름</th>
-            <td></td>
+            <td>Jik Kang Kim</td>
         </tr>
         <tr>
             <th class="highlight">주소</th>
-            <td colspan="3"></td>
+            <td colspan="3">West Cost</td>
         </tr>
         <tr>
             <th class="highlight">E-mail</th>
-            <td colspan="3"></td>
+            <td colspan="3">python@java.cpp</td>
         </tr>
         <tr>
             <th class="highlight">연 락 처</th>
             <td></td>
             <th class="highlight">휴대폰</th>
-            <td></td>
+            <td>016-123-4567</td>
         </tr>
         <tr>
             <th class="highlight">현 주 소</th>
-            <td colspan="3"></td>
+            <td colspan="3">East Cost</td>
         </tr>
     </table>
     <p></p>
@@ -100,11 +104,11 @@
             <th class="highlight">비 고</th>
         </tr>
         <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>200702</th>
+            <th>신능초등학교</th>
+            <th>졸업</th>
+            <th>컴퓨터공학</th>
+            <th>ㅋㅋ</th>
             <th></th>
         </tr><tr>
             <th></th>
@@ -137,23 +141,23 @@
             <th class="highlight">담 당 직 무</th>
         </tr>
         <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>200703</th>
+            <th>201003</th>
+            <th>칠글</th>
+            <th>짱</th>
+            <th>루팡</th>
         </tr><tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>201003</th>
+            <th>202003</th>
+            <th>팔글</th>
+            <th>짱</th>
+            <th>기강유지</th>
         </tr><tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>202003</th>
+            <th>202303</th>
+            <th>구글</th>
+            <th>짱</th>
+            <th>응원</th>
         </tr>
     </table><p></p>
     <table>
