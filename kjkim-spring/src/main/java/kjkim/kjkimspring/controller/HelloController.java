@@ -3,6 +3,7 @@ package kjkim.kjkimspring.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -30,11 +31,12 @@ public class HelloController {
     public String formTest(){
         return "form-test";
     }
-    @GetMapping("form-test-get")
-    public String formTestGet(@RequestParam("title") String title_value,
-                              @RequestParam("content") String content_value, Model model){
-        model.addAttribute("title", title_value);
-        model.addAttribute("content", content_value);
+//    @GetMapping("form-test-get")
+    @PostMapping("form-test-get")
+    public String formTestGet(@RequestParam("username") String username_value,
+                              @RequestParam("password") String password_value, Model model){
+        model.addAttribute("username", username_value);
+        model.addAttribute("password", password_value);
         return "hello-template3";
     }
 }
