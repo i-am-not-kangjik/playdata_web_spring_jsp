@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
+</html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <h1> MVC FORM 수신받는 부분 </h1>
+    <p th:text="'렌더링된 글의 제목은?? ' + ${title}"> 제목 제목 제목 </p>
+    <p th:text="'렌더링된 글의 내용은?? ' + ${content}"> 내용 내용 내용 </p>
+    <!-- http://localhost:9090/hello-mvc2?name=%EA%B9%80%EA%B0%95%EC%A7%81&age=20 -->
+</body>
+
+</html>

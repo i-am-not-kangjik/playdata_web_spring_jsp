@@ -26,5 +26,15 @@ public class HelloController {
         model.addAttribute("age", age_value);
         return "hello-template2";
     }
-
+    @GetMapping("form-test")
+    public String formTest(){
+        return "form-test";
+    }
+    @GetMapping("form-test-get")
+    public String formTestGet(@RequestParam("title") String title_value,
+                              @RequestParam("content") String content_value, Model model){
+        model.addAttribute("title", title_value);
+        model.addAttribute("content", content_value);
+        return "hello-template3";
+    }
 }
