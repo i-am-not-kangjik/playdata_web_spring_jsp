@@ -21,7 +21,7 @@ public class HelloController {
 
     // 인자 값 2개를 받는 메소드를 작성하고, View로 렌더링 (name - 문자열, age - 정수)
     @GetMapping("hello-mvc2")
-    public String helloMvc2(@RequestParam("name") String name_value, @RequestParam("age") int age_value, Model model){
+    public String helloMvc2(@RequestParam("name") String name_value, @RequestParam("age") Integer age_value, Model model){
         model.addAttribute("name", name_value);
         model.addAttribute("age", age_value);
         return "hello-template2";
