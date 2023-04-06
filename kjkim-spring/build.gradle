@@ -21,6 +21,8 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5' // 스프링 기반 애플리케이션의 인증과 권한을 담당하는 스프링의 하위 프레임워크
 }
 
 tasks.named('test') {
