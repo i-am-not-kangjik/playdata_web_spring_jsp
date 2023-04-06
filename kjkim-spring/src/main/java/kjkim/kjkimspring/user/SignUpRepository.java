@@ -9,5 +9,7 @@ package kjkim.kjkimspring.user;
 // JpaRepository 생성에 사용되는 규칙(이전에 SignUp 클래스의 id를 Long 타입으로 지정했었음)
 import org.springframework.data.jpa.repository.JpaRepository;
 public interface SignUpRepository extends JpaRepository<SignUp, Long>{
-
+    SignUp findByUsername(String username); // DI에 의해 스프링이 자동으로 SignUpRepository 객체를 생성
+                                            // 레포지터리 객체의 메소드가 실행할 때 JPA가 해당 메소드명을 분석하고 쿼리를 만들고 실행
+                                            // findBy + 속성명과 같은 메소드를 작성하면 해당 속성의 값으로 데이터조회 가능
 }
