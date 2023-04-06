@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HelloController {
@@ -38,5 +39,11 @@ public class HelloController {
         model.addAttribute("username", username_value);
         model.addAttribute("password", password_value);
         return "hello-template3";
+    }
+
+    @GetMapping("hello-string")
+    @ResponseBody
+    public  String helloString(@RequestParam("name") String name){
+        return "hello " + name;
     }
 }
