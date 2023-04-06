@@ -44,6 +44,26 @@ public class HelloController {
     @GetMapping("hello-string")
     @ResponseBody
     public  String helloString(@RequestParam("name") String name){
-        return "hello " + name;
+        return "hello " + name; // http://localhost:9090/hello-string?name=testmessage
+    }
+
+    @GetMapping("hello-api")
+    @ResponseBody
+    public Hello helloApi(@RequestParam("name") String name) { // http://localhost:9090/hello-api?name=testmessage
+        Hello hello = new Hello(); // Hello 클래스의 인스턴스인 hello 객체 생성
+        hello.setName(name); // 객체에 setName() 메소드를 호출하여 입력 받은 파라미터 값을 객체 변수인 name에 저장
+        return hello;
+    }
+
+    static class Hello { // 클래스 생성
+        private String name; // 객체 인수(인스턴스 변수, 멤버 변수, 속성)
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) { // 입력 : String name, 출력 : void(없음)
+            this.name = name;
+        }
     }
 }
