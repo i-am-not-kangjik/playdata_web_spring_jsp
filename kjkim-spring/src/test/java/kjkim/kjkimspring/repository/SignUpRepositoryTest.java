@@ -62,4 +62,12 @@ public class SignUpRepositoryTest {
         SignUp user = this.signUpRepository.findByUsername("user1");    // SignUp 엔티티의 username 값으로 데이터를 조회
         Assertions.assertEquals(1, user.getId());               // findByUsername과 같은 메소드를 기본적으로 제공하지 않아 인터페이스 수정 필요
     }
+
+    @Test
+    void testJpa_5() {
+        SignUp user = this.signUpRepository.findByUsernameAndEmail(
+                "user1", "user1@user1.com"
+        );
+        Assertions.assertEquals(1, user.getId());;
+    }
 }
