@@ -86,4 +86,15 @@ public class SignUpRepositoryTest {
         u.setEmail("user2@naver.com");
         this.signUpRepository.save(u);
     }
+
+    @Test
+    void testJpa_8() {
+        Assertions.assertEquals(2, this.signUpRepository.count()); // 삭제하기 전 데이터 건수가 2인지 확인
+        Optional<SignUp> user = this.signUpRepository.findById(1L);
+        Assertions.assertTrue(user.isPresent());
+        SignUp u = user.get();
+        this.signUpRepository.delete(u);
+        Assertions.assertEquals(1, this.signUpRepository.count()); // 삭제한 후 데이터 건수가 1인지를 테스트
+
+    }
 }
