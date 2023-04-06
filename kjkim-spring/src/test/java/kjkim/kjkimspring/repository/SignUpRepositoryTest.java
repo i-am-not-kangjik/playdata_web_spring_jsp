@@ -6,9 +6,12 @@ package kjkim.kjkimspring.repository;
 
 import kjkim.kjkimspring.user.SignUp;
 import kjkim.kjkimspring.user.SignUpRepository;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 @SpringBootTest // SbbApplicationTests 클래스가 스프링부트 테스트 클래스임을 의미
 public class SignUpRepositoryTest {
@@ -30,5 +33,15 @@ public class SignUpRepositoryTest {
         user2.setPassword("user2user2");
         user2.setEmail("user2@user2.com");
         this.signUpRepository.save(user2);
+    }
+
+    @Test
+    void testJpa_2() {
+        List<SignUp> all = this.signUpRepository.findAll(); // 모든 데이터를 조회하기 위해서 레포지터리의 findAll 메서드를 사용(데이터 조회)
+        Assertions.assertEquals(2, all.size()); // 2건의 데이터를 저장했기 때문에 데이터 사이즈가 2인지 화인
+
+        SignUp user = all.get(0);
+        Assertions.assertEquals("user1", user.getUsername());; // (기대값, 실제값)이 동일하지 않다면 테스트를 실패로 처리
+//        Assertions.assertEquals("에러가 발생할까요?", user.getUsername());
     }
 }
