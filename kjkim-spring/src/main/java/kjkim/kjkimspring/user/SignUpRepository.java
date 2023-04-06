@@ -9,5 +9,5 @@ package kjkim.kjkimspring.user;
 // JpaRepository 생성에 사용되는 규칙(이전에 SignUp 클래스의 id를 Long 타입으로 지정했었음)
 import org.springframework.data.jpa.repository.JpaRepository;
 public interface SignUpRepository extends JpaRepository<SignUp, Long>{
-    
+
 }
