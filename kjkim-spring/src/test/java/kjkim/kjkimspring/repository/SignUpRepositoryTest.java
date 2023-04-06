@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootTest // SbbApplicationTests 클래스가 스프링부트 테스트 클래스임을 의미
 public class SignUpRepositoryTest {
@@ -43,5 +44,16 @@ public class SignUpRepositoryTest {
         SignUp user = all.get(0);
         Assertions.assertEquals("user1", user.getUsername());; // (기대값, 실제값)이 동일하지 않다면 테스트를 실패로 처리
 //        Assertions.assertEquals("에러가 발생할까요?", user.getUsername());
+    }
+
+    @Test
+    void testJpa_3() {
+        Optional<SignUp> up = this.signUpRepository.findById(1L);   // id 값으로 데이터를 조회하기 위해 findById 메서드를 사용
+                                                                    // Optional은 null 처리를 유연하게 처리하기 위해 사용하는 클래스
+                                                                    // isPresent로 null이 아닌지를 확인 후 get으로 실제 SignUp의 객체 값을 얻어옴
+        if(up.isPresent()) {
+            SignUp user = up.get();
+            Assertions.assertEquals("user1", user.getUsername());
+        }
     }
 }
