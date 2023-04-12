@@ -10,11 +10,13 @@ package kjkim.kjkimspring.user;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface SignUpRepository extends JpaRepository<SignUp, Long>{
-    SignUp findByUsername(String username); // DI에 의해 스프링이 자동으로 SignUpRepository 객체를 생성
+    Optional<SignUp> findByUsername(String username); // DI에 의해 스프링이 자동으로 SignUpRepository 객체를 생성
                                             // 레포지터리 객체의 메소드가 실행할 때 JPA가 해당 메소드명을 분석하고 쿼리를 만들고 실행
                                             // findBy + 속성명과 같은 메소드를 작성하면 해당 속성의 값으로 데이터조회 가능
+                                            // SignUp테스트와 메소드가 맞지 않아 로그인 테스트를 위해 Optional로 수정
     SignUp findByUsernameAndEmail(String username, String email);
     List<SignUp> findByEmailLike(String email);
 }
