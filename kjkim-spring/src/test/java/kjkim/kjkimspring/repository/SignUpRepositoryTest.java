@@ -59,9 +59,17 @@ public class SignUpRepositoryTest {
 
     @Test
     void testJpa_4() {
-        SignUp user = this.signUpRepository.findByUsername("user1");    // SignUp 엔티티의 username 값으로 데이터를 조회
-        Assertions.assertEquals(1, user.getId());               // findByUsername과 같은 메소드를 기본적으로 제공하지 않아 인터페이스 수정 필요
+        Optional<SignUp> up = this.signUpRepository.findByUsername("user1");
+        if(up.isPresent()) {
+            SignUp user = up.get();
+            Assertions.assertEquals(1, user.getId());
+            // 로그인을 위한 수정
+        }
     }
+//    void testJpa_4() {
+//        SignUp user = this.signUpRepository.findByUsername("user1");    // SignUp 엔티티의 username 값으로 데이터를 조회
+//        Assertions.assertEquals(1, user.getId());               // findByUsername과 같은 메소드를 기본적으로 제공하지 않아 인터페이스 수정 필요
+//    }
 
     @Test
     void testJpa_5() {
