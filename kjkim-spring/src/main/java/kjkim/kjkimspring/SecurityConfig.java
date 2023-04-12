@@ -19,9 +19,9 @@ public class SecurityConfig {
         http.authorizeHttpRequests().antMatchers("/**").permitAll()
                 .and().csrf().ignoringAntMatchers("/h2-console/**")
                 .and().headers().addHeaderWriter(new XFrameOptionsHeaderWriter(
-                        XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN  // SAMEORIGIN을 설정하면
-                                                                                // frame에 포함된 페이지가 페이지를 제공하는 사이트와 동일한 경우 계속 사용할 수 있다.
-                ));
+                        XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN  // SAMEORIGIN을 설정하면 frame에 포함된 페이지가 페이지를 제공하는 사이트와 동일한 경우 계속 사용할 수 있다.
+                )).and().formLogin().loginPage("/user/login").defaultSuccessUrl("/"); // 스프링 시큐리티 로그인 설정으로 로그인 URL 경로는 /user/login, login 성공하면 이동하는 페이지는 루트로 지정
+
         return http.build();
     }
 
