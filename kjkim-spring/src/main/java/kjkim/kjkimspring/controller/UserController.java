@@ -4,6 +4,7 @@ package kjkim.kjkimspring.controller;
 import kjkim.kjkimspring.sevice.UserService;
 import kjkim.kjkimspring.user.UserCreateForm;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,9 +38,18 @@ public class UserController {
             return "signup_form";
         }
 
+        try {
         userService.create(userCreateForm.getUsername(),
                 userCreateForm.getEmail(), userCreateForm.getPassword1());
-
+        } catch(DataIntegrityViolationException e) {
+            e.printStackTrace();
+            bindingResult.reject("signupFailed", "이미 가입되어있는 사용자입니다.");
+            return "signup_form";
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            bindingResult.reject("signupFailed", e.getMessage());
+        }
         return "redirect:/";
     }
 }
