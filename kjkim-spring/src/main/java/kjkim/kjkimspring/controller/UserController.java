@@ -41,14 +41,16 @@ public class UserController {
         try {
         userService.create(userCreateForm.getUsername(),
                 userCreateForm.getEmail(), userCreateForm.getPassword1());
-        } catch(DataIntegrityViolationException e) {
+            // bindingResult(오류코드, 오류메시지)는 특정 필드의 오류가 아닌 일반적인 오류를 등록할때 사용
+        } catch(DataIntegrityViolationException e) { // 사용자 ID 또는 이메일 주소가 동일할 경우 발생하는 예외
             e.printStackTrace();
             bindingResult.reject("signupFailed", "이미 가입되어있는 사용자입니다.");
             return "signup_form";
         }
-        catch(Exception e){
+        catch(Exception e){ // 다른 오류일 경우 해당 오류의 메시지를 출력
             e.printStackTrace();
             bindingResult.reject("signupFailed", e.getMessage());
+
         }
         return "redirect:/";
     }
