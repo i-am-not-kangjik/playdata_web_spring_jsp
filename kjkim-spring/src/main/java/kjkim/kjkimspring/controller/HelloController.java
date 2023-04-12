@@ -67,7 +67,7 @@ public class HelloController {
         }
     }
 
-    @GetMapping("/")
+    @GetMapping("/") // 메인 페이지로 렌더링
     public  String root() {
         return "index";
     }
