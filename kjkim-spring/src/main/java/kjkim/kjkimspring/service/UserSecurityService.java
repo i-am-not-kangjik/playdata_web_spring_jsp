@@ -1,4 +1,4 @@
-package kjkim.kjkimspring.sevice;
+package kjkim.kjkimspring.service;
 
 import kjkim.kjkimspring.user.SignUp;
 import kjkim.kjkimspring.user.SignUpRepository;

@@ -1,7 +1,7 @@
 package kjkim.kjkimspring.controller;
 
 
-import kjkim.kjkimspring.sevice.UserService;
+import kjkim.kjkimspring.service.UserService;
 import kjkim.kjkimspring.user.UserCreateForm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
