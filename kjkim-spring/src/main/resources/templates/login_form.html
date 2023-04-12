@@ -1,6 +1,9 @@
 <html layout:decorate="~{layout}">
 <div layout:fragment="content" class="container my-3">
   <form th:action="@{/user/login}" method="post">
+<!--페이지 파라미터로 error가 함께 전달    -->
+<!--로그인 파라미터로 error가 전달될 경우 오류메시지 출력-->
+<!--로그인 실패시 파라미터로 error가 전달되는 것은 스프링 시큐리티의 규칙-->
     <div th:if="${param.error}">
       <div class="alert alert-danger">
         사용자ID 또는 비밀번호를 확인해 주세요.
