@@ -66,4 +66,9 @@ public class HelloController {
             this.name = name;
         }
     }
+
+    @GetMapping("/")
+    public  String root() {
+        return "index";
+    }
 }
